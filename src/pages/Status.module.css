@@ -1,0 +1,95 @@
+.statusContainer {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.statusTitle {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #2980b9;
+}
+
+.errorMessage {
+  color: #e74c3c;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.statusResult {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border-left: 4px solid #3498db;
+}
+
+.statusResult h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.statusResult p {
+  color: #34495e;
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .statusContainer {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .statusTitle {
+    font-size: 1.5rem;
+  }
+
+  .statusResult {
+    padding: 1rem;
+  }
+} 

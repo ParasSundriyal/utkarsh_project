@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from './Login.module.css';
 
-const SUPER_ADMIN = { username: 'superadmin', password: 'superpass' };
-
-const Login = ({ setIsAuthenticated, setUserRole }) => {
+const Login = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    userId: '',
+    password: '',
   });
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -14,7 +13,7 @@ const Login = ({ setIsAuthenticated, setUserRole }) => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -38,58 +37,53 @@ const Login = ({ setIsAuthenticated, setUserRole }) => {
       }
 
       localStorage.setItem('token', data.token);
-      localStorage.setItem('userRole', data.role);
-      setIsAuthenticated(true);
-      setUserRole(data.role);
-      navigate('/');
+      localStorage.setItem('role', data.role);
+
+      if (data.role === 'admin') {
+        navigate('/admin');
+      } else if (data.role === 'superadmin') {
+        navigate('/superadmin');
+      } else {
+        navigate('/status');
+      }
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <div className="row justify-content-center">
-      <div className="col-md-6 col-lg-4">
-        <div className="card shadow">
-          <div className="card-body">
-            <h2 className="card-title text-center mb-4">Login</h2>
-            {error && (
-              <div className="alert alert-danger" role="alert">
-                {error}
-              </div>
-            )}
-            <form onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <label htmlFor="email" className="form-label">Email</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="password" className="form-label">Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <button type="submit" className="btn btn-primary w-100">
-                Login
-              </button>
-            </form>
-          </div>
+    <div className={styles.loginContainer}>
+      <h1 className={styles.loginTitle}>Login</h1>
+      <form onSubmit={handleSubmit}>
+        <div className={styles.formGroup}>
+          <label htmlFor="userId">User ID</label>
+          <input
+            type="text"
+            id="userId"
+            name="userId"
+            value={formData.userId}
+            onChange={handleChange}
+            required
+            autoComplete="username"
+          />
         </div>
-      </div>
+        <div className={styles.formGroup}>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+            autoComplete="current-password"
+          />
+        </div>
+        <button type="submit" className={styles.loginButton}>
+          Login
+        </button>
+      </form>
+      {error && <p className={styles.errorMessage}>{error}</p>}
     </div>
   );
 };

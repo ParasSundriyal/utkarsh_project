@@ -1,63 +1,12 @@
-# Snap & Solve - AI-based Citizen Grievance Redressal System
+# React + Vite
 
-A modern web application for citizens to submit and track their grievances using AI-powered features.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
+Currently, two official plugins are available:
 
-- User authentication and role-based access control
-- AI-powered complaint submission and tracking
-- Real-time status updates
-- Admin dashboard for grievance management
-- Super admin panel for system administration
-- Responsive design with Bootstrap
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Tech Stack
+## Expanding the ESLint configuration
 
-- Frontend: React.js with Vite
-- UI Framework: Bootstrap 5
-- State Management: React Hooks
-- Authentication: JWT-based
-- API: RESTful
-
-## Getting Started
-
-1. Clone the repository:
-```bash
-git clone https://github.com/ParasSundriyal/utkarsh_project.git
-```
-
-2. Install dependencies:
-```bash
-cd utkarsh_project
-npm install
-```
-
-3. Start the development server:
-```bash
-npm run dev
-```
-
-4. Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-## Project Structure
-
-```
-src/
-├── components/     # Reusable UI components
-├── pages/         # Page components
-├── services/      # API services
-├── utils/         # Utility functions
-└── App.jsx        # Main application component
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
